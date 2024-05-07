@@ -9,7 +9,11 @@ from langchain.llms import Ollama
 
 class MarketingAnalysisAgents:
 	def __init__(self):
-		self.llm = Ollama(model=os.environ['MODEL'])
+		self.llm = ChatOpenAI(
+			model="crewai-llama3-8b",
+			base_url="http://localhost:11434/v1",
+			api_key="NA"
+		)
 
 	def product_competitor_agent(self):
 		return Agent(
